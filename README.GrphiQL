@@ -1,0 +1,71 @@
+1. There is a build in GraphQL brower to query the relational data programmatically.
+2. Follow the browser session and click on the right lower corner to invoke the GraphQL interface.
+3. There is online document tab by click on the 'Doc'. There are video and online documents for getting more insight of it. 
+4. Here is the sample of device data schema model and its output.
+# Welcome to GraphiQL
+#
+# GraphiQL is an in-browser tool for writing, validating, and
+# testing GraphQL queries.
+#
+# Type queries into this side of the screen, and you will see intelligent
+# typeaheads aware of the current GraphQL type schema and live syntax and
+# validation errors highlighted within the text.
+#
+# GraphQL queries typically start with a "{" character. Lines that start
+# with a # are ignored.
+#
+# An example GraphQL query might look like:
+#
+#     {
+#       field(arg: "value") {
+#         subField
+#       }
+#     }
+#
+# Keyboard shortcuts:
+#
+#  Prettify Query:  Shift-Ctrl-P (or press the prettify button above)
+#
+#     Merge Query:  Shift-Ctrl-M (or press the merge button above)
+#
+#       Run Query:  Ctrl-Enter (or press the play button above)
+#
+#   Auto Complete:  Ctrl-Space (or just start typing)
+#
+query{
+  devices {
+    id
+  }
+}
+
+Output:
+  "data": {
+    "devices": [
+      {
+        "id": "c3415159-020c-485c-a375-bfa76cada1f9"
+      },
+      {
+        "id": "6328f98e-1fba-4c6b-b5d2-bacfb16c64f1"
+      },
+      {
+        "id": "f72bb555-0de6-4d93-a7ac-15764d0a2ea0"
+      },
+      {
+        "id": "e22ba081-d38c-4466-b2f8-8a8452668f81"
+      },
+      {
+        "id": "2cfc677f-2eeb-4ee7-946e-506509d0c219"
+      }
+    ]
+  }
+}
+
+Here is the REST API and it output:
+root@control:~/nautobot# curl -sH "Authorization: Token be3bec4cc2ea15b0a04f939e0d5f076047724937" -H "Accept: application/json; indent=4" http://192.168.10.2:8000/api/dcim/devices/ | jq .results[].id "c3415159-020c-485c-a375-bfa76cada1f9"
+"6328f98e-1fba-4c6b-b5d2-bacfb16c64f1"
+"f72bb555-0de6-4d93-a7ac-15764d0a2ea0"
+"e22ba081-d38c-4466-b2f8-8a8452668f81"
+"2cfc677f-2eeb-4ee7-946e-506509d0c219"
+root@control:~/nautobot#
+
+

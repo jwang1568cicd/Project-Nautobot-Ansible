@@ -12,7 +12,11 @@ Use 'docker exec -it nautobot nautobot-server createsuperuser' to setup user cre
 
 3. The Ansible part is based on control server to access web01, web02 and db nodes as shown in the inventory file.
 4. The screenshots are collected under images subdirectory for reference.
-5. Here is the Python API verification sample for using Juypter Notebook with pynautobot package.
+5. The README.GraphQL is used to outline the built-in data query supported in Nautobot package. You could use it the examine the related data schema while working on the the automation scripting. 
+6. In this README, we will examine the devices list by both REST api and Python scripting as well. 
+Here is the Python API verification sample for using Juypter Notebook with pynautobot package.
+
+*** sample python script
 from pynautobot.core.api import Api as api
 url="http://192.168.10.2:8000"
 token="be3bec4cc2ea15b0a04f939e0d5f076047724937"
@@ -20,7 +24,7 @@ nautobot = api(url=url, token=token)
 nautobot.version
 devices = nautobot.dcim.devices
 print(devices.all())
-Output:
+*** python console Output:
 [<pynautobot.models.dcim.Devices ('AVMsysSW1') at 0x21e7bc560d0>, <pynautobot.models.dcim.Devices ('cat9400a') at 0x21e7b76fc10>, <pynautobot.models.dcim.Devices ('sjc1sw1') at 0x21e7c6c47d0>, <pynautobot.models.dcim.Devices ('web01') at 0x21e7c6c4e90>, <pynautobot.models.dcim.Devices ('web01') at 0x21e7c6c4690>]
 
 
